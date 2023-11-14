@@ -1,0 +1,24 @@
+Source: bankstown
+Section: sound
+Priority: optional
+Build-Depends: debhelper (>= 12),
+ dh-cargo (>= 25),
+ cargo:native <!nocheck>,
+ rustc:native <!nocheck>,
+ libstd-rust-dev <!nocheck>,
+ librust-biquad-0.4+default-dev (>= 0.4.2-~~) <!nocheck>,
+ librust-lv2-0.6+default-dev <!nocheck>
+Maintainer: Andreas Henriksson <andreas@fatal.se>
+Standards-Version: 4.6.1
+Vcs-Git: https://salsa.debian.org/bananas-team/bankstown.git
+Vcs-Browser: https://salsa.debian.org/bananas-team/bankstown.git
+X-Cargo-Crate: bankstown-lv2
+Rules-Requires-Root: no
+
+Package: lv2-bankstown
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Conflicts: bankstown (<= 1.0.0)
+Replaces: bankstown (<= 1.0.0)
+Description: barebones, fast LV2 bass enhancement plugin
+ This package contains a lv2 plugin for bass enhancement.

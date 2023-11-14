@@ -1,0 +1,28 @@
+#!/usr/bin/make -f
+
+include /usr/share/dpkg/architecture.mk
+
+ifneq (,$(filter parallel=%,$(DEB_BUILD_OPTIONS)))
+        NUMJOBS = $(patsubst parallel=%,%,$(filter parallel=%,$(DEB_BUILD_OPTIONS)))
+else
+        NUMJOBS = 1
+endif
+
+CARGO_BUILD_FLAGS = --release \
+        --offline \
+        -v \
+        -j $(NUMJOBS)
+
+%:
+	dh $@ --buildsystem cargo
+
+override_dh_auto_test:
+	dh_auto_test -- test --all
+
+
+execute_after_dh_auto_build:
+	CARGO_HOME=debian/cargo_home \
+		/usr/share/cargo/bin/cargo build $(CARGO_BUILD_FLAGS)
+
+override_dh_auto_install:
+	$(MAKE) install DESTDIR=debian/lv2-bankstown LIBDIR=/usr/lib
