@@ -27,6 +27,8 @@ Suggests:
  ${cargo:Suggests}
 Provides:
  ${cargo:Provides}
+# Third party packaging uses bankstown package name:
+# https://git.g3la.de/repos/m1-debian/src/commit/f2e4e58f68ac73d19b59d6ddbd765058bce362f7/audio.sh#L58
 Conflicts: bankstown (<= 1.0.0)
 Replaces: bankstown (<= 1.0.0)
 Built-Using: ${cargo:Built-Using}
