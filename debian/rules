@@ -1,6 +1,7 @@
 #!/usr/bin/make -f
 
 include /usr/share/dpkg/architecture.mk
+include /usr/share/rustc/architecture.mk
 
 ifneq (,$(filter parallel=%,$(DEB_BUILD_OPTIONS)))
         NUMJOBS = $(patsubst parallel=%,%,$(filter parallel=%,$(DEB_BUILD_OPTIONS)))
@@ -8,10 +9,12 @@ else
         NUMJOBS = 1
 endif
 
-CARGO_BUILD_FLAGS = --release \
-        --offline \
-        -v \
-        -j $(NUMJOBS)
+CARGO_BUILD_FLAGS = \
+	--release \
+	--target $(DEB_HOST_RUST_TYPE) \
+	--offline \
+	-v \
+	-j $(NUMJOBS)
 
 %:
 	dh $@ --buildsystem cargo
@@ -25,4 +28,9 @@ execute_after_dh_auto_build:
 		/usr/share/cargo/bin/cargo build $(CARGO_BUILD_FLAGS)
 
 override_dh_auto_install:
+	# generate substvars since we override dh_auto_install from dh-cargo.
+	/usr/share/cargo/bin/dh-cargo-built-using lv2-bankstown
+	# install using upstream Makefile. Work around --target usage.
+	ln target/$(DEB_HOST_RUST_TYPE)/release/libbankstown.so target/release/libbankstown.so
 	$(MAKE) install DESTDIR=debian/lv2-bankstown LIBDIR=/usr/lib
+	rm -f target/release/libbankstown.so

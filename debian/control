@@ -17,8 +17,19 @@ Rules-Requires-Root: no
 
 Package: lv2-bankstown
 Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+ ${cargo:Depends}
+Recommends:
+ ${cargo:Recommends}
+Suggests:
+ ${cargo:Suggests}
+Provides:
+ ${cargo:Provides}
 Conflicts: bankstown (<= 1.0.0)
 Replaces: bankstown (<= 1.0.0)
+Built-Using: ${cargo:Built-Using}
+XB-X-Cargo-Built-Using: ${cargo:X-Cargo-Built-Using}
 Description: barebones, fast LV2 bass enhancement plugin
  This package contains a lv2 plugin for bass enhancement.
