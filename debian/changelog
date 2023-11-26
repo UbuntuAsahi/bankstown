@@ -1,5 +1,5 @@
-bankstown-lv2 (1.0.0-1) UNRELEASED; urgency=medium
+bankstown-lv2 (1.0.0-1) unstable; urgency=medium
 
   * Initial release. (Closes: #1056784)
 
- -- Andreas Henriksson <andreas@fatal.se>  Sun, 12 Nov 2023 21:19:15 +0100
+ -- Andreas Henriksson <andreas@fatal.se>  Sun, 26 Nov 2023 16:29:31 +0100
