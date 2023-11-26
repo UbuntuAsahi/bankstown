@@ -34,4 +34,13 @@ Replaces: bankstown (<= 1.0.0)
 Built-Using: ${cargo:Built-Using}
 XB-X-Cargo-Built-Using: ${cargo:X-Cargo-Built-Using}
 Description: barebones, fast LV2 bass enhancement plugin
- This package contains a lv2 plugin for bass enhancement.
+ Speakers found in small devices have trouble reproducing bass and sub-bass
+ faithfully. This is because they are power and space constrained, and cannot
+ move the amount of air required to reproduce such low frequencies at audible
+ volumes. Designers of modern devices get around this problem by taking
+ advantage of the fact that humans are very easy to fool. We generate harmonics
+ of bass and sub-bass frequencies to trick the human brain into thinking there
+ is more bass than there really is.
+ .
+ This package contains a lv2 plugin implementing halfway-decent three-stage
+ psychoacoustic bass approximation.
