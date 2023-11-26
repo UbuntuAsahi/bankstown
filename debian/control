@@ -1,4 +1,4 @@
-Source: bankstown
+Source: bankstown-lv2
 Section: sound
 Priority: optional
 Build-Depends: debhelper (>= 12),
