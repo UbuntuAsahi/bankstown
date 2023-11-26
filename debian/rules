@@ -29,8 +29,8 @@ execute_after_dh_auto_build:
 
 override_dh_auto_install:
 	# generate substvars since we override dh_auto_install from dh-cargo.
-	/usr/share/cargo/bin/dh-cargo-built-using lv2-bankstown
+	/usr/share/cargo/bin/dh-cargo-built-using bankstown-lv2
 	# install using upstream Makefile. Work around --target usage.
 	ln target/$(DEB_HOST_RUST_TYPE)/release/libbankstown.so target/release/libbankstown.so
-	$(MAKE) install DESTDIR=debian/lv2-bankstown LIBDIR=/usr/lib
+	$(MAKE) install DESTDIR=debian/bankstown-lv2 LIBDIR=/usr/lib
 	rm -f target/release/libbankstown.so

@@ -15,7 +15,7 @@ Vcs-Browser: https://salsa.debian.org/bananas-team/bankstown.git
 X-Cargo-Crate: bankstown-lv2
 Rules-Requires-Root: no
 
-Package: lv2-bankstown
+Package: bankstown-lv2
 Architecture: any
 Depends:
  ${misc:Depends},
