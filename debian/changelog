@@ -1,3 +1,9 @@
+bankstown-lv2 (1.0.3-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Andreas Henriksson <andreas@fatal.se>  Mon, 18 Dec 2023 22:14:36 +0100
+
 bankstown-lv2 (1.0.0-1) unstable; urgency=medium
 
   * Initial release. (Closes: #1056784)
