@@ -10,8 +10,8 @@ Build-Depends: debhelper (>= 12),
  librust-lv2-0.6+default-dev <!nocheck>
 Maintainer: Andreas Henriksson <andreas@fatal.se>
 Standards-Version: 4.6.1
-Vcs-Git: https://salsa.debian.org/bananas-team/bankstown.git
-Vcs-Browser: https://salsa.debian.org/bananas-team/bankstown.git
+Vcs-Git: https://salsa.debian.org/bananas-team/bankstown-lv2.git
+Vcs-Browser: https://salsa.debian.org/bananas-team/bankstown-lv2.git
 X-Cargo-Crate: bankstown-lv2
 Rules-Requires-Root: no
 
