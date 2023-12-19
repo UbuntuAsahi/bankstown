@@ -1,3 +1,10 @@
+bankstown-lv2 (1.0.3-2) unstable; urgency=medium
+
+  * debian/control: Update Vcs-* to bankstown-lv2
+  * Drop debcargo generated autopkgtests
+
+ -- Andreas Henriksson <andreas@fatal.se>  Tue, 19 Dec 2023 11:54:46 +0100
+
 bankstown-lv2 (1.0.3-1) unstable; urgency=medium
 
   * New upstream release.
