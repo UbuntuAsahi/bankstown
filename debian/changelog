@@ -1,3 +1,10 @@
+bankstown-lv2 (1.0.3-2~asahi23.10.0) mantic; urgency=medium
+
+  * Port to Ubuntu Mantic
+  * Vendor rust dependencies
+
+ -- Tobias Heider <me@tobhe.de>  Wed, 20 Dec 2023 23:28:14 +0100
+
 bankstown-lv2 (1.0.3-2) unstable; urgency=medium
 
   * debian/control: Update Vcs-* to bankstown-lv2

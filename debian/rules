@@ -1,5 +1,8 @@
 #!/usr/bin/make -f
 
+CARGO := /usr/share/cargo/bin/cargo
+export CARGO_VENDOR_DIR = vendor_rust
+
 include /usr/share/dpkg/architecture.mk
 include /usr/share/rustc/architecture.mk
 
@@ -18,6 +21,14 @@ CARGO_BUILD_FLAGS = \
 
 %:
 	dh $@ --buildsystem cargo
+
+override_dh_auto_clean:
+	dh_auto_clean
+	dh_auto_clean --buildsystem=cargo
+
+	[ -d "$(CARGO_VENDOR_DIR)/" ] || \
+		CARGO=$(CARGO) DH_CARGO_VENDORED_SOURCES=$(DH_CARGO_VENDORED_SOURCES) \
+		CARGO_VENDOR_DIR=$(CARGO_VENDOR_DIR) debian/vendor-rust.sh
 
 override_dh_auto_test:
 	dh_auto_test -- test --all
